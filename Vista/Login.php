@@ -2,8 +2,8 @@
 if (isset($_POST['btnEnviar'])) {
     include_once("../Logica/Usuario.php");
     $usuario = new Usuario();
-    $usuario->setContrasenia(1234);
-    $usuario->setCedulaIdentidad(55356903);
+    $usuario->setContrasenia($_POST['pass']);
+    $usuario->setCedulaIdentidad($_POST['ci']);
 
     if ($usuario->Login()) {
         header("Location: ../Vista/test.html");
@@ -77,7 +77,7 @@ if (isset($_POST['btnEnviar'])) {
 
       </div> 
 
-      <div class="links"> <a href="#">Olvidé mi contraseña</a> <a href="Registro.html">Crear cuenta</a> 
+      <div class="links"> <a href="#">Olvidé mi contraseña</a> <a href="Registro.php">Crear cuenta</a>
 
       </div> 
 

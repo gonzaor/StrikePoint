@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (isset($_SESSION['nombreLogeado'])) {
+    $nombree = $_SESSION['nombreLogeado'];
+
+    echo "Hola $nombree! <a href='cerrarSession.php'>Salir</a>";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

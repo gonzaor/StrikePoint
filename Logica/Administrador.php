@@ -3,7 +3,7 @@
 class Administrador 
 {
 
-/*/*Base de datos CREATE TABLE Admin (
+/*Base de datos CREATE TABLE Admin (
 	ci_admin INT NOT NULL PRIMARY KEY,
 	nombre VARCHAR(30) NOT NULL,
 	apellido VARCHAR(30) NOT NULL,

@@ -13,7 +13,7 @@ class AdminBD extends Conexion
 	mail VARCHAR(30) NOT NULL,
 	telefono INT NOT NULL
 );
-*/
+*//**/
 
 	public function registrarAdmin($ci_admin, $nombre, $apellido, $contraseña, $estado, $mail, $telefono) {
 		$db = $this->conectar();

@@ -355,7 +355,7 @@ body {
 
 .number-pagination span {
     font-size: 30px;
-    color: #16e04c;
+    color: #16e04ca0;
     letter-spacing: 4px;
 }
 
@@ -393,7 +393,7 @@ body {
 .slide-radio4:checked ~ .slider-pagination .page4 {
     width: 14px;
     height: 14px;
-    border: 2px solid #16e04c;
+    border: 2px solid #16e04c96;
     background: transparent;
 }
 

@@ -61,6 +61,7 @@ if (isset($_SESSION['nombreLogeado'])) {
     line-height: 21px;
     transition: all .2s;
 }
+
       .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -91,8 +92,8 @@ if (isset($_SESSION['nombreLogeado'])) {
 </style>
 
       <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a style="border: 2px solid transparent;" class="dropdown-item" href="misionvision.html">Nuestra historia</a>
-        <a style="border: 2px solid transparent;" class="dropdown-item" href="Loginadmin.php">Ingreso Institucional</a>
+        <a style="border: 2px solid transparent; margin-left: -8px; margin-top: 5px;" class="dropdown-item" href="misionvision.html">Nuestra historia</a>
+        <a style="border: 2px solid transparent; margin-left: -8px;" class="dropdown-item" href="Loginadmin.php">Ingreso Institucional</a>
         
       </div>
     </li>

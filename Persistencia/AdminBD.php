@@ -1,5 +1,5 @@
 <?php
-
+include_once("Conexion.php");
 class AdminBD extends Conexion
 {
 

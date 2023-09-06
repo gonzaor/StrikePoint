@@ -84,7 +84,7 @@ class Administrador
     }
 
     public function iniciarSesion() {
-        include_once("Persistencia/AdminBD.php");
+        include_once("../Persistencia/AdminBD.php");
         $adminBD = new AdminBD();
         return $adminBD->IniciarSesion($this->ci_admin, $this->contraseña);
     }

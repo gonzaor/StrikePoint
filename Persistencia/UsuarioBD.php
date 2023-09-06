@@ -6,15 +6,20 @@ class UsuarioBD extends Conexion
 
     public function IniciarSesion($username, $password) {
         $conexion = $this->conectar();
-        $query = "SELECT ci_usuario, contraseña FROM usuario WHERE ci_usuario = '$username'";
-        $resu = mysqli_query($conexion, $query);
+        $query = "SELECT ci_usuario, contraseña, nombre FROM usuario WHERE ci_usuario = ?";
+
+        $stmt = mysqli_prepare($conexion, $query);
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+
+        $resu = mysqli_stmt_get_result($stmt);
 
         if ($resu && mysqli_num_rows($resu) === 1) {
             $row = mysqli_fetch_assoc($resu);
             $contraseñaEncriptada = $row['contraseña'];
 
             if (password_verify($password, $contraseñaEncriptada)) {
-                return true;
+                return $row['nombre'];
             }
         }
 

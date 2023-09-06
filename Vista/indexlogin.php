@@ -29,7 +29,7 @@ if (isset($_POST['btnCrearUsuario'])) {
         echo "<script>alert('Usuario Creado')</script>";
         session_start();
         $_SESSION['nombreLogeado'] = $nombre;
-        header("Location: ../Vista/test.php");
+        header("Location: ../Vista/index.php");
     } else {
         echo "<script>alert('Revise los datos')</script>";
     }
@@ -41,10 +41,12 @@ if (isset($_POST['btnEnviar'])) {
     $usuario->setContrasenia($_POST['pass']);
     $usuario->setCedulaIdentidad($_POST['ci']);
 
-    if ($usuario->Login()) {
-        session_start();
+    $nombreUsuario = $usuario->Login();
 
-        header("Location: ../Vista/test.php");
+    if ($nombreUsuario !== false) {
+        session_start();
+        $_SESSION['nombreLogeado'] = $nombreUsuario;
+        header("Location: ../Vista/index.php");
         exit();
     } else {
         echo "<script>alert('NO COINCIDEN LAS CREDENCIALES');</script>";

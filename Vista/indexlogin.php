@@ -79,7 +79,7 @@ if (isset($_POST['btnEnviar'])) {
 <div id="container">
     <div id="cover">
         <div class="cover-image"></div>
-        <h1 class="sign-up">¡Hola, Amigo!</h1>
+        <h1 class="sign-up">¡Bienvenido!</h1>
         <p class="sign-up">Ingresa tus detalles personales<br> para poder reservar desde tu casa</p>
         <a class="button sign-up" href="#cover">Registrarse</a>
 

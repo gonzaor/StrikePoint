@@ -13,8 +13,11 @@ if (isset($_SESSION['nombreLogeado'])) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <title>StrikePoint</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
@@ -31,13 +34,26 @@ if (isset($_SESSION['nombreLogeado'])) {
     <!-- Navigation -->
     <div class="navigation">
       <div class="navigation-left">
-        <?php
-        if (isset($_SESSION['nombreLogeado'])) {
-           
-        }
-        ?>
-        <a href="#">Tarifas</a>
-        <a href="#">Reservas</a>
+ 
+<nav class="navbar navbar-expand-lg">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Tarifas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Reservas</a>
+    </li>
+    <li class="nav-item dropdown show">
+      <a class="btn btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Nosotros</a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="misionvision.html">Nuestra historia</a>
+        <a class="dropdown-item" href="Loginadmin.php">Ingreso Institucional</a>
+        
+      </div>
+    </li>
+  </ul>
+</nav>
+
       </div>
       <div class="navigation-center">
         <span class="logo"><img src="images/logo.png" alt="" width="100" height="100"></span>
@@ -129,8 +145,7 @@ if (isset($_SESSION['nombreLogeado'])) {
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-    <script src="app.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script> <script src="app.js" charset="utf-8"></script>
   </body>
 
 </html>

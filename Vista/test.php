@@ -16,6 +16,6 @@ if (isset($_SESSION['nombreLogeado'])) {
     <title>Title</title>
 </head>
 <body>
-<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et iure laudantium molestiae nostrum quidem ratione sequi. Aspernatur cupiditate dolorem in temporibus. Alias consequuntur dolorum, fugit perferendis rerum unde. Expedita, fuga.</h1>
+<h1>iniciaste como admin</h1>
 </body>
 </html>

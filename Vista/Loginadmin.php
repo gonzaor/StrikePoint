@@ -5,12 +5,12 @@ if (isset($_POST['btnEnviar'])) {
     $admin->setContraseña($_POST['pass']);
     $admin->setCIAdmin($_POST['ci']);
 
- $nombreAdmin = $admin->iniciarSesion();
+    $nombreAdmin = $admin->iniciarSesion();
 
     if ($admin->iniciarSesion()) {
         session_start();
         $_SESSION['nombreLogeadoAdmin'] = $admin->getNombre(); //
-        header("Location: ../Vista/test.php"); // 
+        header("Location: ../Vista/Paneldecontrol/listaradmin.php"); //
         exit();
     } else {
         echo "<script>alert('NO COINCIDEN LAS CREDENCIALES');</script>";

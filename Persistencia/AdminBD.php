@@ -18,7 +18,7 @@ class AdminBD extends Conexion
 	public function registrarAdmin($ci_admin, $nombre, $apellido, $contraseña, $estado, $mail, $telefono) {
 		$db = $this->conectar();
 		$stmt = $db->prepare("INSERT INTO Admin (ci_admin, nombre, apellido, contraseña, estado, mail, telefono) VALUES (?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param("isssssi", $ci_admin, $nombre, $apellido, $contraseña, "Activo", $mail, $telefono);
+		$stmt->bind_param("isssssi", $ci_admin, $nombre, $apellido, $contraseña, $estado, $mail, $telefono);
 		if($stmt->execute()) {
 			return true;
 		} else {
@@ -26,18 +26,20 @@ class AdminBD extends Conexion
 		}
 	}
 
-	public function IniciarSesion($ci_admin, $contraseña) {
-		$db = $this->conectar();
-		$stmt = $db->prepare("SELECT * FROM Admin WHERE ci_admin = ? AND contraseña = ?");
-		$stmt->bind_param("is", $ci_admin, $contraseña);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		if($result->num_rows > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+
+    public function IniciarSesion($ci_admin, $contraseña) {
+        $db = $this->conectar();
+        $stmt = $db->prepare("SELECT * FROM Admin WHERE ci_admin = ? AND contraseña = ?");
+        $stmt->bind_param("is", $ci_admin, $contraseña);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public function modificarAdmin($ci_admin, $nombre, $apellido, $contraseña, $estado, $mail, $telefono) {
    		$db = $this->conectar();
@@ -60,24 +62,73 @@ class AdminBD extends Conexion
             return false;
         }
     }
-    
+
 
 
     public function listarAdmin() {
-   		$db = $this->conectar();
-   		$stmt = $db->prepare("SELECT * FROM Admin");
-   		$stmt->execute();
-   		$result = $stmt->get_result();
-   		$admins = array();
-   		while($row = $result->fetch_assoc()) {
-   			$admins[] = $row;
-   		}
-   		return $admins;
-   	}
+        $conexion = $this->conectar();
+        $query = "SELECT * FROM Admin WHERE ESTADO != 'f'"; // Asumiendo que la tabla se llama Admin
+        $resultado = mysqli_query($conexion, $query);
 
- 
-    
-    
+        $admins = array();
+
+        if ($resultado) {
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                $admin = new Administrador();
+                $admin->setCIAdmin($row['ci_admin']);
+                $admin->setNombre($row['nombre']);
+                $admin->setApellido($row['apellido']);
+                $admin->setContraseña($row['contraseña']);
+                $admin->setEstado($row['estado']);
+                $admin->setMail($row['mail']);
+                $admin->setTelefono($row['telefono']);
+
+                $admins[] = $admin;
+            }
+        }
+
+        mysqli_close($conexion);
+
+        return $admins;
+    }
+
+    public function obtenerAdminPorCI($ci_admin) {
+        $conexion = $this->conectar();
+        $stmt = $conexion->prepare("SELECT * FROM Admin WHERE ci_admin = ?");
+        $stmt->bind_param("i", $ci_admin);
+
+        if ($stmt->execute()) {
+            $resultado = $stmt->get_result();
+
+            if ($resultado->num_rows === 1) {
+                $row = $resultado->fetch_assoc();
+
+                $admin = new Administrador();
+                $admin->setCIAdmin($row['ci_admin']);
+                $admin->setNombre($row['nombre']);
+                $admin->setApellido($row['apellido']);
+                $admin->setContraseña($row['contraseña']);
+                $admin->setEstado($row['estado']);
+                $admin->setMail($row['mail']);
+                $admin->setTelefono($row['telefono']);
+
+                return $admin;
+            } else {
+                return null; // No se encontró ningún administrador con la cédula especificada
+            }
+        } else {
+            return null; // Error en la ejecución de la consulta
+        }
+
+        $stmt->close();
+        $conexion->close();
+    }
+
+
+
+
+
+
 
 
 

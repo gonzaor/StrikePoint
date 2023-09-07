@@ -107,6 +107,28 @@ class Usuario{
 
 
 
+    public function eliminarUsuario(){
+        include_once("../Persistencia/UsuarioBD.php");
+
+        $usuarioBD = new UsuarioBD();
+        return $usuarioBD->EliminarUsuario($this->cedula_identidad);
+    }
+
+
+    public function listarUsuarios(){
+        include_once("../Persistencia/UsuarioBD.php");
+
+        $usuarioBD = new UsuarioBD();
+        return $usuarioBD->listarUsuarios();
+    }
+
+    
+
+
+
+
+
+
 public function EditarPerfil(){
 
 

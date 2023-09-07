@@ -78,10 +78,17 @@ class Administrador
         $this->telefono = $telefono;
     }
     public function registrarAdmin() {
-        include_once("Persistencia/AdminBD.php");
+        include_once("../../Persistencia/AdminBD.php");
         $adminBD = new AdminBD();
         return $adminBD->registrarAdmin($this->ci_admin, $this->nombre, $this->apellido, $this->contraseña, $this->estado, $this->mail, $this->telefono);
     }
+
+    public function modificarAdmin() {
+        include_once("../../Persistencia/AdminBD.php");
+        $adminBD = new AdminBD();
+        return $adminBD->modificarAdmin($this->ci_admin, $this->nombre, $this->apellido, $this->contraseña, "ACTIVO", $this->mail, "099999999");
+    }
+
 
     public function iniciarSesion() {
         include_once("../Persistencia/AdminBD.php");
@@ -89,17 +96,27 @@ class Administrador
         return $adminBD->IniciarSesion($this->ci_admin, $this->contraseña);
     }
 
+
+
     public function listarAdmin() {
-        include_once("Persistencia/AdminBD.php");
+        include_once("../../Persistencia/AdminBD.php");
         $adminBD = new AdminBD();
         return $adminBD->listarAdmin();
     }
 
     public function eliminarAdmin() {
-        include_once("Persistencia/AdminBD.php");
+        include_once("../../Persistencia/AdminBD.php");
         $adminBD = new AdminBD();
         return $adminBD->eliminarAdmin($this->ci_admin);
     }
+
+    public function obtenerAdminPorCI($ci_admin) {
+        include_once("../../Persistencia/AdminBD.php");
+
+        $adminBD = new AdminBD();
+        return $adminBD->obtenerAdminPorCI($ci_admin);
+    }
+
 
 
 }

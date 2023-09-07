@@ -108,17 +108,16 @@ if (isset($_SESSION['nombreLogeado'])) {
     
        <?php
        if (!isset($_SESSION['nombreLogeado'])) {
-           echo "<a href='#'><img src='images/shopping-bag.png' alt=''></a>";
-           echo "<a href='indexLogin.php'><button class='login-btn'>Login</button></a>";
-       } else {
-           echo "<div class='dropdown'>";
-           echo "<button id='userDropdown' class='dropbtn'>$_SESSION[nombreLogeado]</button>";
-           echo "<div id='myDropdown' class='dropdown-content'>";
-           echo "<a href='../Vista/cerrarSession.php'>Cerrar Sesión</a>";
-           echo "</div>";
-           echo "</div>";
-       }
-       ?>
+    echo "<a href='#'><img src='images/shopping-bag.png' alt=''></a>";
+    echo "<a href='indexLogin.php'><button class='login-btn'>Login</button></a>";
+} else {
+    echo "<div class='dropdown'>";
+    echo "<button id='userDropdown' class='login-btn' style='background-color: #008f39; color: #fff'>$_SESSION[nombreLogeado]</button>"; 
+    echo "<div id='myDropdown' class='dropdown-content'>";
+    echo "<a href='../Vista/cerrarSession.php'>Cerrar Sesión</a>";
+    echo "</div>";
+    echo "</div>";
+} ?>
       </div>
     </div>
 

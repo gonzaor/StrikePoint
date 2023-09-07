@@ -10,7 +10,7 @@ if (isset($_POST['btnEnviar'])) {
     if ($admin->iniciarSesion()) {
         session_start();
         $_SESSION['nombreLogeadoAdmin'] = $admin->getNombre(); //
-        header("Location: ../Vista/index.php"); // 
+        header("Location: ../Vista/test.php"); // 
         exit();
     } else {
         echo "<script>alert('NO COINCIDEN LAS CREDENCIALES');</script>";

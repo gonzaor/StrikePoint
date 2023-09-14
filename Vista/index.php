@@ -20,7 +20,7 @@ if (isset($_SESSION['nombreLogeado'])) {
 
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -45,51 +45,7 @@ if (isset($_SESSION['nombreLogeado'])) {
     </li>
     <li class="nav-item dropdown show">
       <a class="btn btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">Nosotros</a>
-      <style>
-        .navigation-left a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #333745;
-    font-size: 12px;
-    font-weight: bold;
-    width: 110px;
-    height: 39px;
-    border: 2px solid rgb(0 123 255);
-    border-radius: 15px;
-    display: inline-block;
-    text-align: center;
-    line-height: 21px;
-    transition: all .2s;
-}
 
-      .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    float: left;
-    min-width: 12rem;
-    padding: 0.5rem 0;
-    margin: 0.125rem 0 0;
-    font-size: 1rem;
-    color: #919191;
-    text-align: left;
-    list-style: none;
-    background-color: transparent;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: 0.25rem;
-}
-.btn.focus, .btn:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.0rem rgba(0,123,255,.25);
-}
-.navigation-left a:hover, .navigation-left a:focus {
-    border-color: transparent;
-    background-color: rgba(44, 45, 47, 0);
-}
-</style>
 
       <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <a style="border: 2px solid transparent; margin-left: -8px; margin-top: 5px;" class="dropdown-item" href="misionvision.html">Nuestra historia</a>
@@ -164,7 +120,7 @@ if (isset($_SESSION['nombreLogeado'])) {
 
       <!-- Slider #3 -->
       <div class="slider slide-3">
-        <img src="images/model-3.png" alt="">
+        <img src="images/Bola.png" alt="">
         <div class="slider-content">
           <h4>Reservá ya!</h4>
           <h2>Reservá tu salon para eventos</h2>

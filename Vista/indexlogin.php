@@ -82,13 +82,13 @@ if (isset($_POST['btnEnviar'])) {
         <h1 class="sign-up">¡Bienvenido!</h1>
         <p class="sign-up">Ingresa tus detalles personales<br> para poder reservar desde tu casa</p>
         <a class="button sign-up" href="#cover">Registrarse</a>
-        
+
         <h1 class="sign-in">¡Bienvenido de nuevo!</h1>
         <p class="sign-in">Para poder reservar, por favor<br> inicia sesión con tu información personal</p>
         <br>
         <a class="button sub sign-in" href="#">Iniciar Sesión</a>
     </div>
-</div>
+
     <div id="login">
         <h1>Iniciar Sesión</h1>
         <form method="post">
